@@ -104,11 +104,16 @@ footer {
 .tagline {
   /* font-family: 'Codystar', cursive, sans-serif; */  font-family: 'Lato', Calibri, Arial, sans-serif;
   margin-top:40px;
+  margin-bottom: 0px;
   font-size:100px;
   text-align:center;
   color: #555;
 }
 
+.construction{
+  text-align: center;
+  margin-top: 0;
+}
 
 a:hover {
   text-decoration: none;
