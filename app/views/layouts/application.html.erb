@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SerenaVaccari</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="background-image"></div>
+
+<div class="container-fluid main-body" >
+
+  <div class="row">
+    <%= render 'layouts/header' %>
+  </div>
+
+  
+  <div class="row main-row" data-spy="scroll" data-target=".nav-sidemenu">
+    <div class="col-md-2">
+      <%= render 'layouts/sidemenu' %>
+    </div>
+  
+    <div class="col-md-8">
+      <%= yield %>
+    </div>
+  </div>  
+
+
+<div class="row">
+  <%= render 'layouts/footer' %>
+</div>
+
+</div>
+
+<script>
+  $('body').scrollspy({ target: '.navbar-example' })
+
+
+</script>
+
+</body>
+</html>

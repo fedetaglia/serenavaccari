@@ -1,0 +1,116 @@
+
+@import "bootstrap";  
+
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+.main-body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+footer {
+  margin: 0 auto;
+  padding: 5px;
+  border-top: 1px solid #eaeaea;
+  color: $gray-light;
+}
+
+.navbar-collapse {
+  padding-left: 30px;
+}
+
+
+.section {
+  position: relative;
+  padding-top: 35px;
+}
+
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  background-image: url(image_path('copertina.jpg'));
+  height: 680px;
+  background-size: cover;
+  
+  -webkit-opacity: 0.05;
+
+}
+
+
+/* projects */
+
+.project-container {
+  display: inline-block;
+  text-align: center;
+}
+
+.project {
+  font-style: bold;
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+  opacity: 0.4;
+}
+
+.project:hover {
+  opacity : 1;
+}
+
+
+/* landing page */
+#landing .container {
+  max-width: 1000px;
+  text-align:center;
+  margin:0;
+}
+
+#landing {
+  background: url(image_path('landing.jpg')) no-repeat center center;
+  height: 680px;
+  background-size:cover;
+}
+
+.landing_link {
+  margin-top: 200px;
+}
+
+.link-item {
+  background: rgba(255, 255, 255, 0.4);
+  color: #333;
+  font-style: bold;
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.link-item:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tagline {
+  /* font-family: 'Codystar', cursive, sans-serif; */  font-family: 'Lato', Calibri, Arial, sans-serif;
+  margin-top:40px;
+  font-size:100px;
+  text-align:center;
+  color: #555;
+}
+
+
+a:hover {
+  text-decoration: none;
+}
+
