@@ -5,8 +5,10 @@
 
 <% @works.each do |project| %>
   <div class="project-container">
-  <div class='project' style="background: black url('/assets/works/works-<%= project %>.jpg')">
+  <div class='project' style="background: black url(<%= asset_path("/assets/works/#{project}.jpg") %>)">
+
   </div>
+  <p><%= asset_path("/works/#{project}.jpg") %></p>
   <p><%= project %></p>
   </div>
 

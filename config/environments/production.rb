@@ -20,14 +20,16 @@ SerenaVaccari::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  # changed for heroku testing
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # changed for heroku testing
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
