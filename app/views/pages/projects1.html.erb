@@ -3,9 +3,6 @@
 
 <h2>works</h2>
 
-
-<div class="project-container">
-
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -36,7 +33,7 @@
 </div>
 
 
-<div class="row" id='#projects-container'>
+<div class="row">
   <% @works.each do |project| %>
     <div class="project-container">
     <div class='project' id=<%= project[:id] %> 
@@ -47,21 +44,21 @@
 </div>
 
 <div class="row">
-    <div class="projects-list">
+  <% @competitions.each do |project| %>
+    <div class="project-container">
+    <a href="#<%= project[:id]%>">
+    <div class='project' id=<%= "projects/#{project[:id]}" %> 
+      style="background:url(<%= image_url("covers/#{project[:id]}.jpg") %>); background-size: cover; "></div>
+    </a>      
+    <p class="name"><%= project[:name] %></p>
+    <p class="location"><%= project[:location]%>, <%=project[:year]%></p>
     </div>
+  <% end %>
 </div>
 
-</div>
+
 
 <script>
   $('#carousel').hide();
-
-  $(document).ready(function() {
-    App.projects = new App.Projects();
-    App.projects = []
-
-    App.router = new App.Router();
-    Backbone.history.start();
-  }
 
 </script>
