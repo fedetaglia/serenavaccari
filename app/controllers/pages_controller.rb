@@ -43,14 +43,6 @@ class PagesController < ApplicationController
     }]
   end
 
-  # id
-  # category
-  # name
-  # description
-  # location
-  # year
-  # note
-
   def contact
   end
 

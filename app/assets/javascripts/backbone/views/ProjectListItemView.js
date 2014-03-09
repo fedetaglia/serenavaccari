@@ -1,12 +1,11 @@
 App.ProjectListItemView = Backbone.View.extend({
-  TagName 'div'
-  TagClass 'project-container'
+  tagName: 'div',
+  className: 'inline',
+  template: _.template("<a href='#projects/<%= id %>'><div class='project'></div></a>"),
 
-  template: _.template("<a href='#projects/<%= project[:id] %>'><div class='project' style='background:url(<%= image_url('covers/#{project[:id]}.jpg') %>); background-size: cover; '></div></a>"),
-
-  // events: {
-  //   'click a': 'showQuote'
-  // },
+  events: {
+    'click a': 'showProject'
+  },
 
   render: function() {
     var html = this.template( this.model.toJSON() );
@@ -15,11 +14,12 @@ App.ProjectListItemView = Backbone.View.extend({
     return this;
   },
 
-  // showQuote: function() {
+  showQuote: function() {
+    window.alert("display carousel here");
   //   event.preventDefault();
   //   var quoteBody = this.model.get('body');
   //   var quoteAuthor = this.model.get('author');
   //   $('#quote-wrapper .quote').html(quoteBody);
   //   $('#quote-wrapper .author').html(quoteAuthor);
-  // }
+  }
 })

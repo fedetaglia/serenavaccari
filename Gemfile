@@ -62,3 +62,7 @@ group :development do
   gem "pry"
   gem "pry-debugger"
 end
+
+# gem to upload and manage images
+# https://github.com/thoughtbot/paperclip
+gem "paperclip"

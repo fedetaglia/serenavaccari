@@ -4,15 +4,17 @@ App.AppView = Backbone.View.extend ({
 
   initialize: function() {
     this.projectsList = $('#projects-list');
-    this.listenTo(App.projets, 'sync', this.render);
+    this.listenTo(App.projects, 'sync', this.render);
   },
 
   render: function() {
     var $projectsList = this.projectsList;
+    
     this.collection.each(function(project) {
-      var projectListItemView = new App.QuoteListItemView({model: project});
+    
+      var projectListItemView = new App.ProjectListItemView({model: project});
       var html = projectListItemView.render().el;
-      $projectList.append(html);
+      $projectsList.append(html);
     })
   }
 

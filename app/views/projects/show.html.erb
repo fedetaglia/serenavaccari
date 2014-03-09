@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-md-3 cover">
+    <p><%= image_tag @project.cover.url(:thumb) %></p>    
+  </div>
+
+  <div class="col-md-9">
+    <h3><%= @project.name %></h3>
+    <p><%= @project.description %></p>
+    <p><%= @project.location %></p>
+    <p><%= @project.year %></p>
+    <p><%= @project.note %></p>    
+  </div>
+
+</div>
+
+
+<div class="row">
+  
+</div>
+
+
+<div class="row">
+  <% @project.photos.each |photo| %>
+    <%= image_tag photo.image.url(:thumb)%
+  <% end %>
+</div>

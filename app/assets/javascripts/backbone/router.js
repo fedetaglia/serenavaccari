@@ -9,16 +9,17 @@ App.Router = Backbone.Router.extend({
   },
 
   showProject: function(paramId) {
-    var projectModel = App.projects.get(paramId);
-
+    // HERE i shoudld puT THE CAROUSEL
+    // var projectModel = App.projects.get(paramId);
+    window.alert("carousel here");
     if (projectModel === undefined )
       return;
 
-    $('#quote-wrapper').hide();
-    var quoteBody = quoteModel.get('body');
-    $('#quote-wrapper .quote').html(quoteBody);
-    var quoteAuthor = quoteModel.get('author');  
-    $('#quote-wrapper .author').html(quoteAuthor);
-    $('#quote-wrapper').fadeIn();
+    // $('#quote-wrapper').hide();
+    // var quoteBody = quoteModel.get('body');
+    // $('#quote-wrapper .quote').html(quoteBody);
+    // var quoteAuthor = quoteModel.get('author');  
+    // $('#quote-wrapper .author').html(quoteAuthor);
+    // $('#quote-wrapper').fadeIn();
   }
 })
