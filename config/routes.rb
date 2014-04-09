@@ -8,8 +8,6 @@ SerenaVaccari::Application.routes.draw do
     get "/users/sign_up",  :to => "pages#index"
   end
 
-  
-
   root to: "pages#index", layout: :landing
   
   resources :projects do
