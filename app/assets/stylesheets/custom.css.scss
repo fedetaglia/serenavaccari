@@ -35,15 +35,14 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  z-index: -1;
+  z-index: -2;
   
   display: block;
   background-image: url(image_path('copertina.jpg'));
   height: 680px;
   background-size: cover;
-  
+  opacity:0.05;
   -webkit-opacity: 0.05;
-
 }
 
 
@@ -59,6 +58,17 @@ footer {
   display: inline-block;
 }
 
+.project-div {
+  display: block;
+  float: left;
+
+  a {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 .project {
   height: 150px;
   width: 150px;
@@ -67,7 +77,8 @@ footer {
   padding: 5px;
   opacity: 0.4;
   cursor: pointer; 
-  display: inline-block;
+  display: block;
+  float: left;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -98,9 +109,14 @@ footer {
 
 #carousel {
   width: 680px;
-  height: 200px;
   z-index: 2;
   position: absolute;
+  margin: auto;
+  top: 0;
+  border: 10px solid #FFF;
+  -webkit-box-shadow: 10px 10px 20px #002624;
+  -moz-box-shadow: 10px 10px 20px #002624;
+  box-shadow: 10px 10px 20px #002624;
 }
 
 .cover {
@@ -135,13 +151,20 @@ footer {
 
 .link-item {
   background: rgba(255, 255, 255, 0.4);
-  color: #333;
+  color: #222;
   font-style: bold;
   height: 150px;
   width: 150px;
-  border-radius: 20px;
   margin: 5px;
   padding: 5px;
+  
+  border-radius: 20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+
+  -webkit-box-shadow: 3px 3px 3px 3px rgba(4,4,4,0.5);
+   -moz-box-shadow: 3px 3px 3px 3px rgba(4,4,4,0.5);
+        box-shadow: 3px 3px 3px 3px rgba(4,4,4,0.5);
 }
 
 .link-item:hover {
@@ -166,3 +189,7 @@ a:hover {
   text-decoration: none;
 }
 
+.photo {
+  margin: 5px;
+  display: inline-block;
+}

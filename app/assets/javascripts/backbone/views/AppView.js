@@ -11,7 +11,6 @@ App.AppView = Backbone.View.extend ({
     var $projectsList = this.projectsList;
     
     this.collection.each(function(project) {
-    
       var projectListItemView = new App.ProjectListItemView({model: project});
       var html = projectListItemView.render().el;
       $projectsList.append(html);

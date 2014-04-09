@@ -6,22 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# User.delete_all
 
-Project.create(name:'project1', description:'bla', category:'work', location:'sydney', year:'2014', note:"" )
-Project.create(name:'project2', description:'bla', category:'work', location:'milano', year:'2010' )
-Project.create(name:'project3', description:'bla', category:'work', location:'como', year:'2012' )
-Project.create(name:'project4', description:'bla', category:'work', location:'berlino', year:'2011' )
-Project.create(name:'project5', description:'bla', category:'work', location:'lisbona', year:'2014' )
-Project.create(name:'project6', description:'bla', category:'work', location:'torino', year:'2014' )
-Project.create(name:'project7', description:'bla', category:'work', location:'parma', year:'2013' )
-Project.create(name:'project8', description:'bla', category:'work', location:'la spezia', year:'2014' )
-Project.create(name:'project9', description:'bla', category:'work', location:'sydney', year:'2017' )
-
-
-
-
-
-
+# User.create(email:'sere.vaccari@gmail.com', password:'graziefede', password_confirmation:'graziefede')
 
 
 #    t.string  "name"

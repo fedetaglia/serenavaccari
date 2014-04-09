@@ -25,7 +25,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# https://github.com/rails/jbuilder
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -61,8 +62,18 @@ end
 group :development do 
   gem "pry"
   gem "pry-debugger"
+  # Stop Versioning Rails Secret Tokens
+  # https://gist.github.com/cjolly/6265302
+  gem 'dotenv-rails'
 end
 
-# gem to upload and manage images
+# gem to upload and manage images on S3
 # https://github.com/thoughtbot/paperclip
 gem "paperclip"
+gem 'aws-sdk-core', '~> 2.0.0.rc2'
+gem 'aws-sdk'
+
+# login
+gem 'devise'
+
+
