@@ -25,18 +25,65 @@
 
   <!-- project list -->
   <div class="row" id='projects-container'>
-    <h2>works</h2>
-    <div id="projects-list">
-    <% @works.each do |work| %>
-      <div class="project-div">
-        <a href='#projects/<%= work.id %>'>
-          <img class='project' src='<%= work.cover.url %>'
-        </a>
-        <% if current_user %> 
-          <%= link_to 'modify', project_path(work) %> 
+    <div id="works" class="row projects-type">
+      <h2>works</h2>
+      <div id="projects-list">
+        <% @works.each do |work| %>
+          <div class="project-div">
+            <a href='#projects/<%= work.id %>'>
+              <img class='project' src='<%= work.cover.url %>'
+            </a>
+            <% if current_user %> 
+              <%= link_to 'modify', project_path(work) %> 
+            <% end %>
+          </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
+    <div id="competitions" class="row projects-type">
+      <h2>competitions</h2>
+      <div id="projects-list">
+      <% @competitions.each do |competition| %>
+        <div class="project-div">
+          <a href='#projects/<%= competition.id %>'>
+            <img class='project' src='<%= competition.cover.url %>'
+          </a>
+          <% if current_user %> 
+            <%= link_to 'modify', project_path(competition) %> 
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>    
+    <div id="workshops" class="row projects-type">
+      <h2>workshops</h2>
+      <div id="projects-list">
+      <% @workshops.each do |workshop| %>
+        <div class="project-div">
+          <a href='#projects/<%= workshop.id %>'>
+            <img class='project' src='<%= workshop.cover.url %>'
+          </a>
+          <% if current_user %> 
+            <%= link_to 'modify', project_path(workshop) %> 
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>    
+    <div id="studies" class="row projects-type"> 
+      <h2>studies</h2>
+      <div id="projects-list">
+      <% @studies.each do |study| %>
+        <div class="project-div">
+          <a href='#projects/<%= study.id %>'>
+            <img class='project' src='<%= study.cover.url %>'
+          </a>
+          <% if current_user %> 
+            <%= link_to 'modify', project_path(study) %> 
+          <% end %>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
 
@@ -46,8 +93,77 @@
 <%= javascript_include_tag "application" %>
 
 <script>
+
   $('#carousel').hide();
 
+
+    var carousel = function(project) { 
+    event.preventDefault();
+    // find the project i clicked
+    var photos = this.model.attributes.photos 
+
+    if (_.isEmpty(photos)){
+      return;
+    }
+
+    var compare = function(a,b){
+        if (a.updated_at < b.updated_at)
+          return -1;
+          if (a.updated_at > b.updated_at)
+            return 1;
+          return 0;
+    }
+    photos.sort(compare);
+
+    var $carousel = $('#carousel');
+    var $carouselIndicator = $('#carousel-indicators')
+    var $carouselInner = $('#carousel-inner')
+    $carouselIndicator.empty();
+    $carouselInner.empty();
+
+    _.each(photos, function (photo, index){
+      // create html for indicator
+      indicatorHtml = '<li class="balls" data-target="#carousel" data-slide-to="' + index + '"></li>'
+      // attach it to carouselIndicator
+      $carouselIndicator.append(indicatorHtml);
+      // create html for inner photo
+      innerHtml = '<div class="item ' + ((index === 0) ? 'active' : "") + '"><img src="' +  photo.url + '" alt="'+ photo.name + '"><div class="carousel-caption"><h3>' + photo.name + '</h3><p>' + photo.description + '</p></div></div>'
+      // attach it to carouselInner
+      $carouselInner.append(innerHtml);
+    })
+    
+    
+    $carousel.carousel();
+
+    $carousel.on('click','.left',function () {
+      $carousel.carousel('prev')
+    })
+    $carousel.on('click','.right',function () {
+      $carousel.carousel('next')
+    })
+
+    $carousel.on('click','.balls', function(e){
+      var value = this.attributes['data-slide-to'].value
+      $carousel.carousel(parseInt(value))
+    })
+
+
+    $carousel.fadeIn(350, function(){
+      // add class to body
+
+
+      $('body').on('click.carousel',function(){
+        $carousel.hide();
+        $carouselInner.empty();
+        $carouselIndicator.empty();
+        $('body').off('.carousel');
+      })     
+    });
+    
+    $carousel.on('click', function(e){
+      e.stopPropagation();
+    });
+  }
 
   $(document).ready(function() {
     // App.projects = new App.Projects();

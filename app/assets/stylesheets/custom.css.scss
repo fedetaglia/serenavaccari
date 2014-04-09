@@ -13,6 +13,9 @@ body {
 .container {
   max-width: 1000px;
 }
+.about-container {
+  margin-bottom: 200px;
+}
 
 footer {
   margin: 0 auto;
@@ -47,6 +50,10 @@ footer {
 
 
 /* projects */
+
+.projects-container {
+  display: block;
+}
 
 #project-container {
   display: inline-block;
