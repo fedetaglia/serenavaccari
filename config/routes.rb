@@ -1,13 +1,14 @@
 SerenaVaccari::Application.routes.draw do
   
-  
-
-  devise_scope :user do
-    get "/users/sign_up",  :to => "pages#index"
-    get '/serry', to: "devise/sessions#new"
-  end
 
   devise_for :users
+  
+  devise_scope :user do
+    get '/serry', to: "devise/sessions#new"
+    get "/users/sign_up",  :to => "pages#index"
+  end
+
+  
 
   root to: "pages#index", layout: :landing
   
