@@ -4,8 +4,8 @@ class PhotosController < ApplicationController
   before_action :delete_image, only: [:destroy]
 
   def edit
-  
   end
+
 
   def create
     @photo = @project.photos.new(photo_params)
@@ -18,6 +18,11 @@ class PhotosController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update
+    @photo.update(photo_params)
+    redirect_to @project, notice: 'Photo successfully updated.'
   end
 
   def destroy

@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
         json.updated_at photo.image_updated_at
       end
     end
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @photos_json }

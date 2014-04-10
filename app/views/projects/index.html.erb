@@ -121,7 +121,7 @@ $(document).ready(function() {
         // attach it to carouselIndicator
         $carouselIndicator.append(indicatorHtml);
         // create html for inner photo
-        innerHtml = '<div class="item ' + ((index === 0) ? 'active' : "") + '"><img src="' +  photo.url + '" alt="'+ photo.name + '"><div class="carousel-caption"><h3>' + photo.name + '</h3><p>' + photo.description + '</p></div></div>'
+        innerHtml = '<div class="item ' + ((index === 0) ? 'active' : "") + '"><img class="carousel-image" src="' +  photo.url + '" alt="'+ photo.name + '"><div class="carousel-caption"><h3>' + photo.name + '</h3><p>' + photo.description + '</p></div></div>'
         // attach it to carouselInner
         $carouselInner.append(innerHtml);
       })

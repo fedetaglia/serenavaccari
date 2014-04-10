@@ -46,7 +46,29 @@
       <%= image_tag photo.image.url(:thumb)   %>
       <h5><%= photo.name %></h5>
       <p><%= photo.description %></p>
+
+      <div>
+        <%= form_for([@project, photo], html: {:role => 'form', id:"edit_#{photo.id}",class: 'form edit-photo'}) do |f| %>
+          <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
+          <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
+          <%= f.file_field :image, :class => 'form-control'  %>
+          <%= f.submit 'save changes', :class => "btn btn-success " %>
+        <% end %>
+      </div>
+      <%= link_to 'edit', "##{photo.id}", id:"photo_#{photo.id}",class: "show-photo-edit" %>  |  
       <%= link_to 'delete', project_photo_path(@project, photo), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
 </div>
+
+<script>
+
+  $('.edit-photo').hide();
+
+  $('.show-photo-edit').on("click",function() {
+    repl = /(^photo_)/
+    edit = '#edit_' + this.id.replace(repl,"")
+    $(edit).toggle();
+  });
+
+</script>
