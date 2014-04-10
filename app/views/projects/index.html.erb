@@ -42,10 +42,8 @@
       <h2>competitions</h2>
       <div id="projects-list">
       <% @competitions.each do |competition| %>
-        <div class="project-div">
-          <a href='#projects/<%= competition.id %>'>
-            <img class='project' src='<%= competition.cover.url %>'>
-          </a>
+        <div class="project-div" id="<%= competition.id %>">
+          <img class='project' src='<%= competition.cover.url %>'>
           <% if current_user %> 
             <%= link_to 'modify', project_path(competition) %> 
           <% end %>
@@ -58,8 +56,7 @@
       <div id="projects-list">
       <% @workshops.each do |workshop| %>
         <div class="project-div" id="<%= workshop.id %>">
-
-            <img class='project' src='<%= workshop.cover.url %>'>
+          <img class='project' src='<%= workshop.cover.url %>'>
           <% if current_user %> 
             <%= link_to 'modify', project_path(workshop) %> 
           <% end %>
@@ -71,10 +68,8 @@
       <h2>studies</h2>
       <div id="projects-list">
       <% @studies.each do |study| %>
-        <div class="project-div">
-          <a href='#projects/<%= study.id %>'>
-            <img class='project' src='<%= study.cover.url %>'>
-          </a>
+        <div class="project-div" id="<%= study.id %>">
+          <img class='project' src='<%= study.cover.url %>'>
           <% if current_user %> 
             <%= link_to 'modify', project_path(study) %> 
           <% end %>
