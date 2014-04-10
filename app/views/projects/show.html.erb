@@ -27,6 +27,10 @@
     </div>
 
     <div class="form-group">
+      <%= f.number_field :position, placeholder: 'position',  class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
       <%= f.file_field :image, :class => 'form-control'  %>
     </div>
     
@@ -39,6 +43,11 @@
 
 </div>
 
+<div class="row">
+  <div class="photos-list">
+    
+  </div>
+</div>
 
 <div class="row ">
   <% @photos.each do |photo| %>
@@ -51,7 +60,9 @@
         <%= form_for([@project, photo], html: {:role => 'form', id:"edit_#{photo.id}",class: 'form edit-photo'}) do |f| %>
           <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
           <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
+          <%= f.number_field :position, placeholder: 'position', class: 'form-control' %>
           <%= f.file_field :image, :class => 'form-control'  %>
+          <%= link_to 'close', "#", :class => "btn btn-worning close-form" %>
           <%= f.submit 'save changes', :class => "btn btn-success " %>
         <% end %>
       </div>
@@ -61,10 +72,11 @@
   <% end %>
 </div>
 
+<div id="token" style="display: none;"><%= form_authenticity_token %></div>
+
 <script>
-
+  
   $('.edit-photo').hide();
-
   $('.show-photo-edit').on("click",function() {
     repl = /(^photo_)/
     edit = '#edit_' + this.id.replace(repl,"")

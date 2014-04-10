@@ -45,17 +45,17 @@ class ProjectsController < ApplicationController
 
   def show
     @photo = Photo.new
-    @photos = @project.photos.order('image_updated_at')
+    @photos = @project.photos.order('position asc')
 
     @photos_json = Jbuilder.encode do |json|
       json.array! @photos do |photo|
         json.name photo.name
         json.description photo.description
+        json.position photo.position
         json.url photo.image.url
         json.updated_at photo.image_updated_at
       end
     end
-
     respond_to do |format|
       format.html
       format.json { render json: @photos_json }
