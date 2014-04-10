@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   before_action :delete_cover, only: [:destroy]
   before_action :set_side_menu
 
+  respond_to :html, :json
 
 
 
@@ -36,15 +37,29 @@ class ProjectsController < ApplicationController
     #   end
     # end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @projects_json }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @projects_json }
+    # end
   end
 
   def show
     @photo = Photo.new
     @photos = @project.photos.order('image_updated_at')
+
+    @photos_json = Jbuilder.encode do |json|
+      json.array! @photos do |photo|
+        json.name photo.name
+        json.description photo.description
+        json.url photo.image.url
+        json.updated_at photo.image_updated_at
+      end
+    end
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @photos_json }
+    end
   end
 
   def new
