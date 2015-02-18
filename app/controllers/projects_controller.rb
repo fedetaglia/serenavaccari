@@ -6,15 +6,13 @@ class ProjectsController < ApplicationController
 
   respond_to :html, :json
 
-  
+
 
   def index
-    
     @works = Project.where(category: 'works')
     @competitions = Project.where(category: 'competitions')
     @workshops = Project.where(category: 'workshops')
     @studies = Project.where(category: 'studies')
-
   end
 
   def show
@@ -85,7 +83,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photo_attributes: [:name, :description, :image, :project_id, :_destory] )
+      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photos_attributes: [:name, :description, :image, :project_id, :_destory] )
     end
 
     def delete_cover
