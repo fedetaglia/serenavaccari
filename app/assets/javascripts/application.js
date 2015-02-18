@@ -15,6 +15,4 @@
 //= require bootstrap
 //= require turbolinks
 //= require jquery_nested_form
-//= require_tree ./backbone/models
-//= requrie_tree ./backbone/collections
 //= require_tree .
