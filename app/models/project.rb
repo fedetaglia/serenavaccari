@@ -5,4 +5,7 @@ class Project < ActiveRecord::Base
 
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
   has_many :photos, dependent: :destroy
+
+  accepts_nested_attributes_for :photos, allow_destroy: true
+  
 end

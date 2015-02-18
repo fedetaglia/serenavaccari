@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   respond_to :html, :json
 
-
+  
 
   def index
     
@@ -14,33 +14,7 @@ class ProjectsController < ApplicationController
     @competitions = Project.where(category: 'competitions')
     @workshops = Project.where(category: 'workshops')
     @studies = Project.where(category: 'studies')
-    
-    # @projects = Project.all
-    # backbone.js
-    # @check_user = current_user ? true : false
-    # @projects_json = Jbuilder.encode do |json|
-    #   json.array! @projects do |project|
-    #     json.id project.id
-    #     json.name project.name
-    #     json.description project.description
-    #     json.location project.location
-    #     json.year project.year
-    #     json.note project.note
-    #     json.cover_url project.cover.url
-    #     json.can_edit @check_user
-    #     json.photos project.photos do | photo |
-    #       json.name photo.name
-    #       json.description photo.description
-    #       json.url photo.image.url
-    #       json.updated_at photo.image_updated_at
-    #     end
-    #   end
-    # end
 
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @projects_json }
-    # end
   end
 
   def show
@@ -111,7 +85,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover)
+      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photo_attributes: [:name, :description, :image, :project_id, :_destory] )
     end
 
     def delete_cover

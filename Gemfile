@@ -45,7 +45,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
+# Templating
+gem 'slim'
+gem 'slim-rails'
+gem 'simple_form'
+gem 'nested_form'
 
 # Use bootstrap sass gem for styling
 gem 'bootstrap-sass'

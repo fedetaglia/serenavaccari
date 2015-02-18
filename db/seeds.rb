@@ -8,8 +8,8 @@
 
 User.delete_all
 
-User.create(email:'sere.vaccari@gmail.com', password:'changeme', password_confirmation:'changeme')
-User.create(email:'fede.taglaibue@gmail.com', password:'changeme', password_confirmation:'changeme')
+User.create(email:'sere.vaccari@gmail.com', password:'password', password_confirmation:'password')
+User.create(email:'fede.tagliabue@gmail.com', password:'password', password_confirmation:'password')
 
 
 #    t.string  "name"
