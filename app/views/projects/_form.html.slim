@@ -4,6 +4,8 @@
   .form-group
     = f.text_area :description, placeholder: 'description', :class => 'form-control'
   .form-group
+    = f.number_field :position, placeholder: 'position',  class: 'form-control'
+  .form-group
     = f.select(:category,['works','competitions','workshops','studies'], {}, {:class => 'form-control'})
   .form-group
     = f.text_field :location, placeholder: 'location', :class => 'form-control'
@@ -21,21 +23,26 @@
         .row.resource-row.panel.panel-default
           .panel-body
             .row
-              .col-md-6
+              .col-md-5
                 .form-group
                   = builder.input :name, input_html: {class: 'form-control'}, label: false, placeholder: 'Name'
+              .col-md-3
+                .form-group
+                  = builder.input :position, input_html: {class: 'form-control'}, label: false, placeholder: 'Position'
               .col-md-4
                 - if !builder.object.image.present?
                   = builder.input :image, as: :file
                 - else 
                   br
                   = builder.object.image.file.filename
-              .col-md-2
-                = builder.link_to_remove "X"
             .row
-              .col-md-6
+              .col-md-8
                 .form-group
                   = builder.input :description, input_html: {class: 'form-control'}, label: false, placeholder: 'Description'
+              .col-md-2.col-md-offset-2
+                .form-group
+                  br
+                  = builder.link_to_remove "X"
     .row
       .col-md-4
         = f.link_to_add "Add a Photo", :photos, :data => { :target => "#photos" }
