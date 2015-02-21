@@ -35,7 +35,7 @@
                 - else 
                   br
                   - if builder.object.image.file.present?
-                    = builder.object.image.file.filename 
+                    = builder.object.image_file_name
                   - else
                     | The file is missing
             .row
