@@ -22,30 +22,31 @@
       = f.fields_for :photos do |builder|
         .row.resource-row.panel.panel-default
           .panel-body
-            .row
-              .col-md-5
-                .form-group
-                  = builder.input :name, input_html: {class: 'form-control'}, label: false, placeholder: 'Name'
-              .col-md-3
-                .form-group
-                  = builder.input :position, input_html: {class: 'form-control'}, label: false, placeholder: 'Position'
-              .col-md-4
-                - if !builder.object.image.present?
-                  = builder.input :image, as: :file
-                - else 
-                  br
-                  - if builder.object.image.exists?
-                    = builder.object.image_file_name
-                  - else
-                    | The file is missing
-            .row
-              .col-md-8
-                .form-group
-                  = builder.input :description, input_html: {class: 'form-control'}, label: false, placeholder: 'Description'
-              .col-md-2.col-md-offset-2
-                .form-group
-                  br
-                  = builder.link_to_remove "X"
+            .col-md-8
+              .row
+                .col-md-6
+                  .form-group
+                    = builder.input :name, input_html: {class: 'form-control'}, label: false, placeholder: 'Name'
+                .col-md-6
+                  .form-group
+                    = builder.input :position, input_html: {class: 'form-control'}, label: false, placeholder: 'Position'
+              .row
+                .col-md-12
+                  .form-group
+                    = builder.input :description, input_html: {class: 'form-control'}, label: false, placeholder: 'Description'
+            .col-md-3
+              - if !builder.object.image.present?
+                = builder.input :image, as: :file
+              - else 
+                br
+                - if builder.object.image.exists?
+                  = image_tag builder.object.image.url(:thumb)
+                - else
+                  | The file is missing
+            .col-md-1
+              .form-group
+                br
+                = builder.link_to_remove "X"
     .row
       .col-md-4
         = f.link_to_add "Add a Photo", :photos, :data => { :target => "#photos" }

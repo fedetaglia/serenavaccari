@@ -56,15 +56,15 @@ class ProjectsController < ApplicationController
   end
 
   def update
-      respond_to do |format|
-        if @project.update(project_params)
-          format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: 'edit' }
-          format.json { render json: @project.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
+    end
     end
 
   def destroy
@@ -83,7 +83,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photos_attributes: [:name, :description, :image, :project_id, :_destroy] )
+      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photos_attributes: [ :id, :name, :description, :image, :project_id, :_destroy] )
     end
 
     def delete_cover
