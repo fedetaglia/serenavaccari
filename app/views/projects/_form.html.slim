@@ -34,7 +34,7 @@
                   = builder.input :image, as: :file
                 - else 
                   br
-                  - if builder.object.image.file.present?
+                  - if builder.object.image.exists?
                     = builder.object.image_file_name
                   - else
                     | The file is missing
