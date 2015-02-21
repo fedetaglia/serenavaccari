@@ -34,7 +34,10 @@
                   = builder.input :image, as: :file
                 - else 
                   br
-                  = builder.object.image.file.filename
+                  - if builder.object.image.file.present?
+                    = builder.object.image.file.filename 
+                  - else
+                    | The file is missing
             .row
               .col-md-8
                 .form-group
