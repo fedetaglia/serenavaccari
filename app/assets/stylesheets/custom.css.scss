@@ -117,10 +117,11 @@ footer {
 
 #carousel {
   width: 680px;
+  height: 510px;
   z-index: 2;
   position: absolute;
   margin: auto;
-  top: 0;
+  top: 20;
   border: 10px solid #FFF;
   -webkit-box-shadow: 10px 10px 20px #002624;
   -moz-box-shadow: 10px 10px 20px #002624;
@@ -131,14 +132,16 @@ footer {
   background: white;
 
   .item {
-    min-height: 300px;
+    width: 660px;
+    height: 490px;
+    .carousel-image {
+      vertical-align: middle; 
+      min-width: 100%;
+      height: auto;
+    }
   }
 }
 
-.carousel-image {
-  margin: auto;
-  vertical-align: middle; 
-}
 
 .cover {
   margin-top: 10px;
