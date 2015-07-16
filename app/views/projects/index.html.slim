@@ -1,0 +1,124 @@
+.container-fluid.main-body.col-md-8.col-md-offset-2
+  = render 'secondary_menu'
+  br
+
+  - if current_user
+    .row
+      = link_to 'new project', new_project_path
+    br
+
+  .project-container
+
+    /! project list
+    .row
+      - @projects.works.each_with_index do | project, index |
+
+        .col-md-4.col-xs-12.project-div id="#{project.id}"
+          = image_tag project.cover.url, class: 'project'
+          - if current_user
+            = link_to 'modify', project_path(project)
+
+  #token style="display: none;"
+    = form_authenticity_token
+
+#carousel.carousel.slide data-ride="carousel"
+  /! carousel indicators
+  ol#carousel-indicators.carousel-indicators
+  /! carousel wrapper for slides
+  #carousel-inner.carousel-inner
+  /! carousel controls
+  a.left.carousel-control data-slide="prev" href="#carousel"
+  a.right.carousel-control data-slide="next" href="#carousel"
+
+javascript:
+  $(document).ready(function() {
+
+      $('#carousel').hide();
+
+      var compare = function(a,b){
+          if (a.position < b.position)
+            return -1;
+            if (a.position > b.position)
+              return 1;
+            return 0;
+      };
+
+      var carousel = function(photos) {
+        event.preventDefault();
+        // find the project i clicked
+        var photos = photos
+
+        if (_.isEmpty(photos)){
+          return;
+        }
+
+        photos.sort(compare);
+
+        var $carousel = $('#carousel');
+        var $carouselIndicator = $('#carousel-indicators')
+        var $carouselInner = $('#carousel-inner')
+        $carouselIndicator.empty();
+        $carouselInner.empty();
+
+        _.each(photos, function (photo, index){
+          // create html for indicator
+          indicatorHtml = '<li class="balls" data-target="#carousel" data-slide-to="' + index + '"></li>'
+          // attach it to carouselIndicator
+          $carouselIndicator.append(indicatorHtml);
+          // create html for inner photo
+          innerHtml = '<div class="item ' + ((index === 0) ? 'active' : "") + '"><img class="carousel-image" src="' +  photo.url + '" alt="'+ photo.name + '"><div class="carousel-caption"><h3>' + photo.name + '</h3><p>' + photo.description + '</p></div></div>'
+          // attach it to carouselInner
+          $carouselInner.append(innerHtml);
+        })
+
+        $carousel.carousel();
+
+        $carousel.on('click','.left',function () {
+          $carousel.carousel('prev')
+        })
+        $carousel.on('click','.right',function () {
+          $carousel.carousel('next')
+        })
+
+        $carousel.on('click','.balls', function(e){
+          var value = this.attributes['data-slide-to'].value
+          $carousel.carousel(parseInt(value))
+        })
+
+
+        $carousel.fadeIn(350, function(){
+          // add class to body
+          $('body').on('click.carousel',function(){
+            $carousel.hide();
+            $carouselInner.empty();
+            $carouselIndicator.empty();
+            $('body').off('.carousel');
+          })
+        });
+
+        $carousel.on('click', function(e){
+          e.stopPropagation();
+        });
+      };
+
+
+      $('.project-div').on("click",function(e){
+        get_project(this.id)
+      });
+
+      var get_project = function(id) {
+        var createOption = {
+            url: '/projects/' + id,
+            type: 'get',
+            dataType: 'json',
+            data: { token: $('#token').html() }
+          }
+        $.ajax(createOption).done(function(photos){
+            carousel(photos);
+         }).fail(function(){
+            alert('error here');
+           });
+      }
+
+  })
+

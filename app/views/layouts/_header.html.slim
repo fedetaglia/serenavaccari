@@ -1,0 +1,22 @@
+nav.navbar role="navigation"
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="/"  arch. serena vaccari
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-justify.header-list.fancy-list
+        li
+          a.black-link href="/about"
+            | about me
+        li
+          a.black-link href="/projects"
+            | projects
+        li
+          a.black-link href="/contact"
+            | contact
+        - if current_user
+          li = link_to "Log out", destroy_user_session_path, method: :delete

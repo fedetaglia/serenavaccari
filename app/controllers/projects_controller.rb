@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
 
   def index
+    @projects = Project.all
     @works = Project.where(category: 'works')
     @competitions = Project.where(category: 'competitions')
     @workshops = Project.where(category: 'workshops')
@@ -75,27 +76,28 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find_by_id params[:id]
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photos_attributes: [ :id, :name, :description, :image, :project_id, :_destroy] )
-    end
+  def set_project
+    @project = Project.find_by_id params[:id]
+  end
 
-    def delete_cover
-      @project.cover = nil
-      @project.save
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:name, :description, :category, :location, :year, :note, :cover, photos_attributes: [ :id, :name, :description, :image, :project_id, :_destroy] )
+  end
 
-    def set_side_menu
-      @sidemenu = { works: "works",
-                    competitions: "competitions",
-                    workshops: "workshops",
-                    studies: "studies"}
-    end
+  def delete_cover
+    @project.cover = nil
+    @project.save
+  end
+
+  def set_side_menu
+    @sidemenu = { works: "works",
+                  competitions: "competitions",
+                  workshops: "workshops",
+                  studies: "studies"}
+  end
 
 end

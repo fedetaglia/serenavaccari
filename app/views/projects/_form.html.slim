@@ -6,7 +6,7 @@
   .form-group
     = f.number_field :position, placeholder: 'position',  class: 'form-control'
   .form-group
-    = f.select(:category,['works','competitions','workshops','studies'], {}, {:class => 'form-control'})
+    = f.select(:category, Options::Categories.all_as_sym, {}, {:class => 'form-control'})
   .form-group
     = f.text_field :location, placeholder: 'location', :class => 'form-control'
   .form-group
@@ -15,7 +15,7 @@
     = f.text_field :note, placeholder: 'note', :class => 'form-control'
   .form-group
     = f.label 'Add a cover image for this project ( jpg only )'
-    = f.file_field :cover, placeholder: 'cover image' , :class => 'form-control' 
+    = f.file_field :cover, placeholder: 'cover image' , :class => 'form-control'
 
     h3 photos
     #photos
@@ -37,7 +37,7 @@
             .col-md-3
               - if !builder.object.image.present?
                 = builder.input :image, as: :file
-              - else 
+              - else
                 br
                 - if builder.object.image.exists?
                   = image_tag builder.object.image.url(:thumb)

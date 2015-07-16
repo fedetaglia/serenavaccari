@@ -1,13 +1,46 @@
-
-@import "bootstrap";  
-
+@import "bootstrap";
 
 body {
-  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-family: Courier, Calibri, Arial, sans-serif;
+}
+
+.navbar-header {
+  a {
+    color: black;
+  }
+}
+
+.black-link {
+  color: black;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: black !important ;
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+.icon-bar {
+  background-color: black;
+}
+
+.header-list {
+  float: right;
+  margin-right: 20px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    a {
+      margin: 17px;
+      padding: 0px;
+    }
+  }
 }
 
 .main-body {
-  padding-top: 70px;
   padding-bottom: 70px;
 }
 
@@ -40,10 +73,10 @@ footer {
   left: 0;
   right: 0;
   z-index: -2;
-  
+  // background-color: #247361;
   display: block;
+  height: 100%;
   background-image: url(image_path('copertina.jpg'));
-  height: 680px;
   background-size: cover;
   opacity:0.05;
   -webkit-opacity: 0.05;
@@ -51,6 +84,20 @@ footer {
 
 
 /* projects */
+
+
+.secondary-menu {
+  margin-bottom: 20px;
+}
+
+.fancy-list {
+  li {
+    display: inline-block;
+  }
+  a {
+    margin: 5px;
+  }
+}
 
 .projects-container {
   display: block;
@@ -66,43 +113,52 @@ footer {
   display: inline-block;
 }
 
-.project-div {
-  display: block;
-  float: left;
-
-  a {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+.nav-sidemenu {
+  li:hover{
+    background-color: black;
   }
 }
 
-.project {
-  height: 150px;
-  width: 150px;
-  border-radius: 20px;
-  margin: 5px;
-  padding: 5px;
-  opacity: 0.4;
-  cursor: pointer; 
-  display: block;
-  float: left;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.project-div {
+  // display: block;
+  // float: left;
 
-  border:1px solid #ccc;
-  border-bottom:2px solid #bbb;
-  border-top:1px solid #ddd;
-  
-  border-radius: 20px;
-  -webkit-border-radius:20px;
-  -moz-border-radius:20px;
+  // a {
+  //   display: block;
+  //   margin: 0 auto;
+  //   text-align: center;
+  // }
+}
+
+
+.project {
+  width: 100%;
+  margin: 10px;
+  // height: 150px;
+  // width: 150px;
+  // border-radius: 20px;
+  // margin: 5px;
+  // padding: 5px;
+  // opacity: 0.4;
+  // cursor: pointer;
+  // display: block;
+  // float: left;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+
+  // border:1px solid #ccc;
+  // border-bottom:2px solid #bbb;
+  // border-top:1px solid #ddd;
+
+  // border-radius: 20px;
+  // -webkit-border-radius:20px;
+  // -moz-border-radius:20px;
 }
 
 .project:hover {
-  opacity : 1;
+  opacity: 0.8;
 }
 
 .name {
@@ -130,18 +186,16 @@ footer {
 
 .carousel-inner {
   background: white;
-
   .item {
     width: 660px;
     height: 490px;
     .carousel-image {
-      vertical-align: middle; 
+      vertical-align: middle;
       min-width: 100%;
       height: auto;
     }
   }
 }
-
 
 .cover {
   margin-top: 10px;
@@ -181,7 +235,7 @@ footer {
   width: 150px;
   margin: 5px;
   padding: 5px;
-  
+
   border-radius: 20px;
   -webkit-border-radius:20px;
   -moz-border-radius:20px;

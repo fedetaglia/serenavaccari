@@ -1,9 +1,0 @@
-<div class="nav-sidemenu">
-  <% if @sidemenu.present? %>
-    <ul class="nav nav-tabs nav-stacked affix">
-    <% @sidemenu.each do |key, item| %>
-      <li><a href=#<%= key.to_s %>><%= item %></a></li>
-    <% end %>
-    </ul>   
-  <% end %>
-</div>  
