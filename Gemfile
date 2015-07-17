@@ -25,7 +25,7 @@ gem 'font-awesome-sass'
 
 gem "paperclip"
 gem 'aws-sdk-core', '~> 2.0.0.rc2'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # login
 gem 'devise'
@@ -34,7 +34,7 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-group :development do 
+group :development do
   gem "pry"
   gem 'dotenv-rails'
 end
