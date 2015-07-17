@@ -6,14 +6,8 @@ class ProjectsController < ApplicationController
 
   respond_to :html, :json
 
-
-
   def index
     @projects = Project.all
-    @works = Project.where(category: 'works')
-    @competitions = Project.where(category: 'competitions')
-    @workshops = Project.where(category: 'workshops')
-    @studies = Project.where(category: 'studies')
   end
 
   def show

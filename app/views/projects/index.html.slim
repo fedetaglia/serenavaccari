@@ -11,11 +11,13 @@
 
     /! project list
     .row
-      - @projects.each_with_index do | project, index |
-        .col-md-4.col-xs-12.project-div id="#{project.id}"
-          = image_tag project.cover.url, class: 'project'
-          - if current_user
-            = link_to 'modify', project_path(project)
+      - @projects.in_groups_of do |group|
+        .row
+          - group.each do |project, index|
+            .col-md-4.col-xs-12.project-div id="#{project.id}"
+              = image_tag project.cover.url, class: 'project'
+              - if current_user
+                = link_to 'modify', project_path(project)
 
   #token style="display: none;"
     = form_authenticity_token
