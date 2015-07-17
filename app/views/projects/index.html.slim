@@ -12,8 +12,10 @@
     /! project list
     .row
       - @projects.in_groups_of(3) do |group|
+        - next unless group.present?
         .row
           - group.each do |project, index|
+            - next unless project.present?
             .col-md-4.col-xs-12.project-div id="#{project.id}"
               = image_tag project.cover.url, class: 'project'
               - if current_user
