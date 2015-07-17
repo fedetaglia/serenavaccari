@@ -12,9 +12,7 @@
     /! project list
     .row
       - @projects.each_with_index do | project, index |
-
         .col-md-4.col-xs-12.project-div id="#{project.id}"
-          - if project.cover.present
           = image_tag project.cover.url, class: 'project'
           - if current_user
             = link_to 'modify', project_path(project)
