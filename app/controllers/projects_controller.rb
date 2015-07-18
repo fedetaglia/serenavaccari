@@ -29,6 +29,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def carousel
+    @project = Project.find params[:id]
+  end
+
   def new
     @project = Project.new
   end

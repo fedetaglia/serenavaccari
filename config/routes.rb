@@ -11,6 +11,7 @@ SerenaVaccari::Application.routes.draw do
   root to: "projects#index", layout: :landing
 
   resources :projects do
+    get 'carousel', on: :member
     resources :photos
   end
 

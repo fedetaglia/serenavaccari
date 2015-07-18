@@ -9,10 +9,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
-group :doc do
-  gem 'sdoc', require: false
-end
-
 # Templating
 gem 'slim'
 gem 'slim-rails'
@@ -39,3 +35,6 @@ group :development do
   gem 'dotenv-rails'
 end
 
+group :doc do
+  gem 'sdoc', require: false
+end
