@@ -1,21 +1,17 @@
-#carousel {
-  width: 600px;
-  height: 500px;
-  position: absolute;
-  margin: auto;
-  top: 20;
-  left: 0;
-  right: 0;
-}
+#myModal {
+  width: 800px;
+  max-width: 100%;
 
-.carousel-inner {
-  background: white;
-  .item {
-    .carousel-image {
-      vertical-align: middle;
-      min-width: 100%;
-      height: auto;
+  #carousel {
+    width: 100%;
+  }
+
+  .carousel-inner {
+    background: white;
+    img {
+      width: 100%;
     }
   }
-}
 
+
+}
