@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, allow_destroy: true
 
+  default_scope { order(position: :asc) }
+
   scope :works,        -> { where(category: "works") }
   scope :competitions, -> { where(category: "competitions") }
   scope :workshops,    -> { where(category: "workshops") }
