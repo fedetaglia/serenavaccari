@@ -1,4 +1,4 @@
-.container-fluid.main-body.col-md-8.col-md-offset-2
+.container-fluid.main-body.col-md-8.col-md-offset-2.col-xs-12
   = render 'secondary_menu'
   br
 
@@ -19,6 +19,3 @@
                 = image_tag project.cover.url, class: 'project'
                 - if current_user
                   = link_to 'modify', project_path(project)
-
-  #token style="display: none;"
-    = form_authenticity_token
