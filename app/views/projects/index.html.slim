@@ -13,8 +13,9 @@
         .col-md-4.col-xs-12.project-div id="#{project.id}" class="#{project.category}"
           = link_to carousel_project_path(project), remote: true do
             = image_tag project.cover.url, class: 'project'
-            - if current_user
-              = link_to 'modify', project_path(project)
+          p = "#{project.name} | #{project.location}"
+          - if current_user
+            = link_to 'modify', project_path(project)
 
       / - @projects.in_groups_of(3) do |group|
       /   - next unless group.present?
