@@ -1,5 +1,5 @@
 ul.secondary-menu.fancy-list
   - Options::Categories.all_as_sym.each do |cat|
-    a.black-link href="#"
+    .black-link data-category="#{cat}"
       li
         = cat

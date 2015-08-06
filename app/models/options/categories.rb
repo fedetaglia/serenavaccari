@@ -1,6 +1,6 @@
 module Options
   class Categories < Base
-    @options = ['works','competitions','workshops','studies']
+    @options = ['residential', 'commercial', 'landscape', 'experimental']
 
     def initialize(option)
       @option = option

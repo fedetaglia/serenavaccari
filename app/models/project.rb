@@ -9,9 +9,4 @@ class Project < ActiveRecord::Base
 
   default_scope { order(position: :asc) }
 
-  scope :works,        -> { where(category: "works") }
-  scope :competitions, -> { where(category: "competitions") }
-  scope :workshops,    -> { where(category: "workshops") }
-  scope :studies,      -> { where(category: "studies") }
-
 end

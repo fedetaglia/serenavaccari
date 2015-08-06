@@ -1,81 +1,82 @@
+<div class='container project-show'>
+  <div class="row">
+    <div class="col-md-3 cover">
+      <p><%= image_tag @project.cover.url(:thumb) %></p>
+    </div>
 
-<div class="row">
-  <div class="col-md-3 cover">
-    <p><%= image_tag @project.cover.url(:thumb) %></p>    
+    <div class="col-md-3">
+      <h3><%= @project.name %></h3>
+      <p><%= @project.category %></p>
+      <p><%= @project.description %></p>
+      <p><%= @project.location %></p>
+      <p><%= @project.year %></p>
+      <p><%= @project.note %></p>
+      <%= link_to 'edit', edit_project_path(@project) %> |
+      <%= link_to 'delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Add a new photo</h4>
+      <%= form_for([@project, @photo], html: {:role => 'form', class: 'form'}) do |f| %>
+
+      <div class="form-group">
+        <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.number_field :position, placeholder: 'position',  class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.file_field :image, :class => 'form-control'  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Send photo', :class => "btn btn-success " %>
+      </div>
+
+      <% end %>
+    </div>
+
   </div>
 
-  <div class="col-md-3">
-    <h3><%= @project.name %></h3>
-    <p><%= @project.description %></p>
-    <p><%= @project.location %></p>
-    <p><%= @project.year %></p>
-    <p><%= @project.note %></p>  
-    <%= link_to 'edit', edit_project_path(@project) %> |  
-    <%= link_to 'delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="row">
+    <div class="photos-list">
+
+    </div>
   </div>
 
-  <div class="col-md-4">
-    <h4>Add a new photo</h4>
-    <%= form_for([@project, @photo], html: {:role => 'form', class: 'form'}) do |f| %>
+  <div class="row ">
+    <% @photos.each do |photo| %>
+        <div class="photo">
+        <%= image_tag photo.image.url(:thumb)   %>
+        <h5><%= photo.name %></h5>
+        <p><%= photo.description %></p>
 
-    <div class="form-group">
-      <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.number_field :position, placeholder: 'position',  class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.file_field :image, :class => 'form-control'  %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.submit 'Send photo', :class => "btn btn-success " %>
-    </div>
-
+        <div>
+          <%= form_for([@project, photo], html: {:role => 'form', id:"edit_#{photo.id}",class: 'form edit-photo'}) do |f| %>
+            <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
+            <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
+            <%= f.number_field :position, placeholder: 'position', class: 'form-control' %>
+            <%= f.file_field :image, :class => 'form-control'  %>
+            <%= link_to 'close', "#", :class => "btn btn-worning close-form" %>
+            <%= f.submit 'save changes', :class => "btn btn-success " %>
+          <% end %>
+        </div>
+        <%= link_to 'edit', "##{photo.id}", id:"photo_#{photo.id}",class: "show-photo-edit" %>  |
+        <%= link_to 'delete', project_photo_path(@project, photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     <% end %>
   </div>
-
 </div>
-
-<div class="row">
-  <div class="photos-list">
-    
-  </div>
-</div>
-
-<div class="row ">
-  <% @photos.each do |photo| %>
-      <div class="photo">
-      <%= image_tag photo.image.url(:thumb)   %>
-      <h5><%= photo.name %></h5>
-      <p><%= photo.description %></p>
-
-      <div>
-        <%= form_for([@project, photo], html: {:role => 'form', id:"edit_#{photo.id}",class: 'form edit-photo'}) do |f| %>
-          <%= f.text_field :name, placeholder: 'name', :class => 'form-control' %>
-          <%= f.text_area :description, placeholder: 'description', class: 'form-control' %>
-          <%= f.number_field :position, placeholder: 'position', class: 'form-control' %>
-          <%= f.file_field :image, :class => 'form-control'  %>
-          <%= link_to 'close', "#", :class => "btn btn-worning close-form" %>
-          <%= f.submit 'save changes', :class => "btn btn-success " %>
-        <% end %>
-      </div>
-      <%= link_to 'edit', "##{photo.id}", id:"photo_#{photo.id}",class: "show-photo-edit" %>  |  
-      <%= link_to 'delete', project_photo_path(@project, photo), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  <% end %>
-</div>
-
 <div id="token" style="display: none;"><%= form_authenticity_token %></div>
 
 <script>
-  
+
   $('.edit-photo').hide();
   $('.show-photo-edit').on("click",function() {
     repl = /(^photo_)/

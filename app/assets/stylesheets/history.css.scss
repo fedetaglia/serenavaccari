@@ -1,0 +1,17 @@
+.history {
+  .history-line {
+    min-height: 100px;
+  }
+  .separator {
+    height: 100%;
+    min-height: 100px;
+  }
+
+  .dotted {
+    height: 100%;
+    min-height: 100px;
+    width:1px;
+    display:inline-block;
+    border-left: 5px dashed black;
+  }
+}
