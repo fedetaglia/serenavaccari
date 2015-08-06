@@ -1,24 +1,31 @@
 .container-fluid.main-body.col-md-8.col-md-offset-2.col-xs-12
   = render 'secondary_menu'
   br
-
+  .clearfix
   - if current_user
     .row.new-project
       = link_to 'new project', new_project_path
     br
 
   .project-container
-    .row
-      - @projects.in_groups_of(3) do |group|
-        - next unless group.present?
-        .row
-          - group.each do |project, index|
-            - next unless project.present?
-            .col-md-4.col-xs-12.project-div id="#{project.id}" class="#{project.category}"
-              = link_to carousel_project_path(project), remote: true do
-                = image_tag project.cover.url, class: 'project'
-                - if current_user
-                  = link_to 'modify', project_path(project)
+    .row.col-md-12
+      - @projects.map do |project|
+        .col-md-4.col-xs-12.project-div id="#{project.id}" class="#{project.category}"
+          = link_to carousel_project_path(project), remote: true do
+            = image_tag project.cover.url, class: 'project'
+            - if current_user
+              = link_to 'modify', project_path(project)
+
+      / - @projects.in_groups_of(3) do |group|
+      /   - next unless group.present?
+      /   .row
+      /     - group.each do |project, index|
+      /       - next unless project.present?
+      /       .col-md-4.col-xs-12.project-div id="#{project.id}" class="#{project.category}"
+      /         = link_to carousel_project_path(project), remote: true do
+      /           = image_tag project.cover.url, class: 'project'
+      /           - if current_user
+      /             = link_to 'modify', project_path(project)
 
 
 coffee:
