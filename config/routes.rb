@@ -1,4 +1,8 @@
 SerenaVaccari::Application.routes.draw do
+
+
+  devise_for :users
+
   devise_scope :user do
     get '/serry', to: "devise/sessions#new"
   end
@@ -11,4 +15,5 @@ SerenaVaccari::Application.routes.draw do
   end
 
   get ':action', to: 'pages#action'
+
 end
