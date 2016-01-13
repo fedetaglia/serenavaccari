@@ -13,3 +13,16 @@
     }
   }
 }
+
+.label {
+  background: black;
+  padding: 10px 20px;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  text-align: right;
+  min-width: 200px;
+  h3 {
+    margin-top: 0px;
+  }
+}

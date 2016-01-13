@@ -23,8 +23,19 @@
           a.right.carousel-control data-slide="next" href="#carousel" role="button"
             span.glyphicon.glyphicon-chevron-right aria-hidden="true"
             span.sr-only Next
+    .label
+      h3 = project.name
+      - if false
+        p = project.description
+      p
+        => project.location
+        | |
+        =< project.year
 
 
+description
+location
+year
 
 coffee:
   $ ->
