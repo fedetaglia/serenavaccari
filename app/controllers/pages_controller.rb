@@ -1,8 +1,5 @@
 class PagesController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index,:contact,:about]
-  def index
-    render layout: "landing"
-  end
 
   def contact
   end
