@@ -5,13 +5,41 @@
     left: 20%;
     top: -10px;
     bottom: 0px;
+    z-index: -1px;
   }
   .description {
-    position: absolute;
-    left: calc(20% + 60px);
+    position: relative;
+    z-index: 1000;
+    padding: 0px 5px;
+    width: calc(80% - 60px);
+    float: right;
+
     background-color: black;
+    &.grey {
+      background-color: grey;
+    }
     color: white;
-    margin-top: 30px;
+    margin-bottom: 5px;
+    a {
+      color: white;
+      &:hover {
+        color: black;
+        background-color: white;
+        text-decoration: none;
+      }
+    }
+    &.inverted {
+        color: black;
+        background-color: white;
+      a {
+        color: black;
+        &:hover {
+          color: white;
+          background-color: black;
+          text-decoration: none;
+        }
+      }
+    }
   }
   .years {
     background-color: white;
@@ -27,12 +55,13 @@
 
   .history-line {
     margin-top: 20px;
-    height: 100px;
+    height: 80px;
     &.double {
-      height: 200px;
+      height: 160px;
     }
     &.triple {
-      height: 300px;
+      height: 240px;
+
     }
   }
 }
