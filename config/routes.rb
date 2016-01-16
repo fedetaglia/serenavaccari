@@ -7,7 +7,7 @@ SerenaVaccari::Application.routes.draw do
     get '/serry', to: "devise/sessions#new"
   end
 
-  root to: "projects#index", layout: :landing
+  root to: "projects#index"
 
   resources :projects do
     get 'carousel', on: :member
