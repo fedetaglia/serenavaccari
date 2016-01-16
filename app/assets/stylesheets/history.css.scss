@@ -1,6 +1,33 @@
 .history {
+  height: 1300px;
+  .line-image {
+    position: absolute;
+    left: 20%;
+    top: -10px;
+    bottom: 0px;
+  }
+
+  .years {
+    background-color: white;
+    color: black;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    left: calc(20% - 40px);
+    text-align: center;
+    line-height: 80px;
+    position: absolute;
+  }
+
   .history-line {
-    min-height: 100px;
+    margin-top: 20px;
+    height: 100px;
+    &.double {
+      height: 200px;
+    }
+    &.triple {
+      height: 300px;
+    }
   }
   .separator {
     height: 100%;
@@ -14,4 +41,5 @@
     display:inline-block;
     border-left: 5px dashed black;
   }
+
 }
