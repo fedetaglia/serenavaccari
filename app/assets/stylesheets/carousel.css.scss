@@ -11,6 +11,17 @@
     img {
       width: 100%;
     }
+
+    .carousel-caption {
+      background-color: black;
+      left: initial;
+      right: 0px;
+      padding: 7px 30px;
+      p {
+        margin: 0px;
+        text-align: right;
+      }
+    }
   }
 }
 

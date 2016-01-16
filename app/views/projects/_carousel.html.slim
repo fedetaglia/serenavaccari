@@ -13,9 +13,9 @@
             - project.photos.each_with_index do |photo, index|
               .item class="#{'active' if index == 0}"
                 = image_tag photo.image.url, alt: photo.name
-                .carousel-caption
-                  h3 = photo.name
-                  p = photo.description
+                - if photo.name.present?
+                  .carousel-caption
+                    p = photo.name
 
           a.left.carousel-control data-slide="prev" href="#carousel" role="button"
             span.glyphicon.glyphicon-chevron-left aria-hidden="true"
