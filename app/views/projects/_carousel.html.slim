@@ -25,7 +25,7 @@
             span.sr-only Next
     .label
       h3 = project.name
-      - if false
+      - if project.description.present?
         p = project.description
       p
         => project.location
