@@ -2,7 +2,7 @@
   height: 1300px;
   .line-image {
     position: absolute;
-    left: 20%;
+    left: 0%;
     top: -10px;
     bottom: 0px;
     z-index: -1px;
@@ -11,7 +11,7 @@
     position: relative;
     z-index: 1000;
     padding: 0px 5px;
-    width: calc(80% - 60px);
+    width: calc(100% - 60px);
     float: right;
     p {
       margin: 0px;
@@ -21,7 +21,8 @@
       background-color: grey;
     }
     color: white;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     a {
       color: white;
       &:hover {
@@ -49,7 +50,7 @@
     height: 80px;
     width: 80px;
     border-radius: 40px;
-    left: calc(20% - 40px);
+    left: calc(0% - 40px);
     text-align: center;
     line-height: 80px;
     position: absolute;
