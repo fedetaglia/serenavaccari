@@ -13,7 +13,9 @@
     padding: 0px 5px;
     width: calc(80% - 60px);
     float: right;
-
+    p {
+      margin: 0px;
+    }
     background-color: black;
     &.grey {
       background-color: grey;
