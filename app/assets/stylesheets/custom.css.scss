@@ -27,6 +27,28 @@ body {
   }
 }
 
+.highlight-black {
+  display: inline-block;
+  color: white !important;
+  background-color: black !important ;
+  text-decoration: none !important;
+  &:visited {
+    color: white !important;
+    background-color: black !important ;
+    text-decoration: none !important;
+  }
+  &:active {
+    color: white !important;
+    background-color: black !important ;
+    text-decoration: none !important;
+  }
+  &:hover {
+    color: white !important;
+    background-color: black !important ;
+    text-decoration: none !important;
+  }
+}
+
 .icon-bar {
   background-color: black;
 }

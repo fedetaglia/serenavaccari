@@ -1,17 +1,33 @@
 .history {
+  .australia {
+    background-color: #CCCCCC;
+  }
+  .grey {
+    background-color: #ECECEC;
+  }
+  .germany{
+    background-color: #DBDADA;
+  }
+  .portugal {
+    background-color: #DCDCDC;
+  }
+  .brazil {
+    background-color: #BDBDBD;
+  }
   .history-line {
     min-height: 100px;
   }
   .separator {
     height: 100%;
-    min-height: 100px;
+    min-height: 10px;
   }
 
   .dotted {
+    line-height: 1px;
     height: 100%;
-    min-height: 100px;
+    min-height: 1px;
     width:1px;
     display:inline-block;
-    border-left: 5px dashed black;
+    border-left: 200px dashed black;
   }
 }
