@@ -6,7 +6,13 @@
     top: -10px;
     bottom: 0px;
   }
-
+  .description {
+    position: absolute;
+    left: calc(20% + 60px);
+    background-color: black;
+    color: white;
+    margin-top: 30px;
+  }
   .years {
     background-color: white;
     color: black;
@@ -29,17 +35,4 @@
       height: 300px;
     }
   }
-  .separator {
-    height: 100%;
-    min-height: 100px;
-  }
-
-  .dotted {
-    height: 100%;
-    min-height: 100px;
-    width:1px;
-    display:inline-block;
-    border-left: 5px dashed black;
-  }
-
 }
