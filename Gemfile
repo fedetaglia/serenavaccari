@@ -17,7 +17,7 @@ gem 'nested_form'
 
 # Use bootstrap sass gem for styling
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 gem "paperclip"
 gem 'aws-sdk-core', '~> 2.0.0.rc2'
