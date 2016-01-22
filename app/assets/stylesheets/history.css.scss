@@ -1,9 +1,10 @@
 .history {
+  position: relative;
   height: 1300px;
   .line-image {
     position: absolute;
     left: 0%;
-    top: -10px;
+    top: -700px;
     bottom: 0px;
     z-index: -1px;
   }

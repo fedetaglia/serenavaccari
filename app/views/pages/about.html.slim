@@ -1,7 +1,7 @@
 .container-fluid.main-body.col-md-8.col-md-offset-2
   h1 about me
   .about-container
-    #aboutme.section
+    #aboutme.section style='margin-left:110px;'
 
       p Originally from Milan, Serena studied Architecture at Technische Universität in Berlin, Universidade Lusiada in Lisbon and Politecnico di Milano, where she completed her Bachelor and Masters of Architecture in 2011 with first class honours. Since 2012 Serena is a registered architect in Milan.
 
@@ -13,7 +13,31 @@
 
       p She is passionate about humanitarian architecture, she has been volunteering in a permaculture center in Brasil and she participates in various workshop of experimental construction.
 
-  .col-md-12
-    .about-container
-      #aboutme
-        = render partial: 'history'
+  / .skill-container
+  /   .row.skill-row
+  /     .col-xs-1
+  /       .skills Cacca
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Cacca
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Cacca
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Cacca
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Cacca
+
+
+  /   .row.skill-row
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Tette
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Tette
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Tette
+  /     .col-xs-1.col-xs-offset-1
+  /       .skills Cacca
+
+
+
+  .about-container
+    = render partial: 'history'
