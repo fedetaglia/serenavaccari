@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore.min
+//= require bcswipe.min
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jquery_nested_form
