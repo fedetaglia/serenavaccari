@@ -2,8 +2,25 @@ body {
   font-family: Courier, Calibri, Arial, sans-serif;
 }
 
+.vertical-line {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: asset-url('long-line.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  &.about {
+    .vertical-line {
+      display: block;
+    }
+  }
+}
+
 .footer {
-  height: 50px;
   font-size: 13px;
   color: grey;
   padding-top: 30px;

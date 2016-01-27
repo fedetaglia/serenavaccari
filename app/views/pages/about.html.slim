@@ -23,12 +23,12 @@
         .skills
           .lines3 Adobe Creative Suite
       .col-xs-1.col-xs-offset-1
-        .skills
-          .lines2 Vector works
-      .col-xs-1.col-xs-offset-1
         .skills Sketchup
       .col-xs-1.col-xs-offset-1
         .skills Revit
+      .col-xs-1.col-xs-offset-1
+        .skills
+          .lines2 Vector works
 
     .row.skill-row
       .col-xs-1.col-xs-offset-2
@@ -47,6 +47,24 @@
   .about-container
     = render partial: 'history'
 
-
-
 .clearfix
+
+
+coffee:
+  $ ->
+    resizeImage = ->
+      height = $('body').css('height')
+
+      year = $('.years')[0]
+      yearLeft = year.getBoundingClientRect().left
+      imageLeft = yearLeft + $(year).width()/2
+
+      $('.vertical-line').css('height', height)
+      $('.vertical-line').css('left', "#{imageLeft}px")
+
+    $(window).resize ->
+      resizeImage()
+
+    resizeImage()
+
+
