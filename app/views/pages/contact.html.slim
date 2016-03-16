@@ -6,13 +6,26 @@
   br
   br
 
-  div
-    p
-      | EMAIL &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;
-      = mail_to 'sere.vaccari@gmail.com', 'sere.vaccari@gmail.com', class: 'black-link'
-    p ADDRESS &nbsp;&nbsp;| Bondi|2026 NSW
-    p
-      | PORTFOLIO |&nbsp;
-      = link_to "issuu.com/serena.vaccari", "http://issuu.com/serena.vaccari/docs/portfolio_2011", class: 'black-link', target: "_blank"
+  .row
+    .col-xs-3
+      p
+        | EMAIL
+      p
+        | ADDRESS
+      p
+        | PORTFOLIO 16
 
+      p
+        | PORTFOLIO 13
+    .col-xs-9
+      p
+        | |
+        =< mail_to 'sere.vaccari@gmail.com', 'sere.vaccari@gmail.com', class: 'black-link'
+      p | Bondi | 2026 NSW
+      p
+        | |
+        =< link_to "Serena Vaccari", "http://www.serenavaccari.com/portfolio_serena.pdf", class: 'black-link', target: "_blank"
+      p
+        | |
+        =< link_to "issuu.com/serena.vaccari", "http://issuu.com/serena.vaccari/docs/portfolio_2011", class: 'black-link', target: "_blank"
 .clearfix
