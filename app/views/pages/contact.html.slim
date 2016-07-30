@@ -1,4 +1,4 @@
-.container-fluid.main-body.col-md-4.col-md-offset-4
+.container-fluid.main-body.col-md-12.col-lg-4.col-lg-offset-4
   br
   br
   br
@@ -6,26 +6,38 @@
   br
   br
 
-  .row
-    .col-xs-3
-      p
+
+  .row.contacts-box
+    .col-xs-5
+      .row
         | EMAIL
-      p
-        | ADDRESS
-      p
+      .row
         | PORTFOLIO 16
-
-      p
+      .row
         | PORTFOLIO 13
-    .col-xs-9
-      p
+      .row
+        | CURRICULUM VITAE
+      .row
+        | LINKEDIN
+
+    .col-xs-7
+      .row
         | |
         =< mail_to 'sere.vaccari@gmail.com', 'sere.vaccari@gmail.com', class: 'black-link'
-      p | Bondi | 2026 NSW
-      p
+      .row
         | |
-        =< link_to "Serena Vaccari", "http://www.serenavaccari.com/portfolio_serena.pdf", class: 'black-link', target: "_blank"
-      p
+        =< link_to "projects", "http://www.serenavaccari.com/portfolio_serena.pdf", class: 'black-link', target: "_blank"
+      .row
         | |
         =< link_to "issuu.com/serena.vaccari", "http://issuu.com/serena.vaccari/docs/portfolio_2011", class: 'black-link', target: "_blank"
+      .row
+        | |
+        =< link_to "Serena Vaccari", "http://www.serenavaccari.com/curriculum_serena.pdf", class: 'black-link', target: "_blank"
+      .row
+        | |
+        =< link_to "https://it.linkedin.com/in/serena-vaccari-78bbab45/en", class: 'black-link', target: '_blank' do
+          .fa.fa-linkedin-square
+
 .clearfix
+
+
